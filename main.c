@@ -1,14 +1,11 @@
 #include "libs/fileManager.h"
+#include "libs/flagManager.h"
 #include <linux/limits.h>
-#include <stdio.h>
 
-int main() {
+int main(int argc, char **argv) {
 
-  char** files;
-  char path[PATH_MAX];
-  getCallerPath(path);
 
-  getFilesInDirectory(path, files);
+  getFlags(argv, argc);
 
   return 1;
 }
