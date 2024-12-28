@@ -1,5 +1,5 @@
-#include "libs/fileManager.h"
-#include "libs/flagManager.h"
+#include "libs/managers/fileManager.h"
+#include "libs/managers/flagManager.h"
 #include <linux/limits.h>
 
 int main(int argc, char **argv) {
