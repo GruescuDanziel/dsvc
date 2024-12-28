@@ -1,12 +1,19 @@
-output: libs/fileManager.o libs/flagManager.o  main.o
-	gcc main.o libs/fileManager.o libs/flagManager.o -o output.out
+MANAGERS = libs/managers
+FUNCS = libs/funcs
+
+
+output: $(MANAGERS)/fileManager.o $(MANAGERS)/flagManager.o $(FUNCS)/ignoreFunctionality.o  main.o
+	gcc main.o $(MANAGERS)/fileManager.o $(MANAGERS)/flagManager.o $(FUNCS)/ignoreFunctionality.o -o output.out
 	cp output.out /usr/bin/dsvc
 
-flagmanager.o: libs/flagManager.c
-	gcc -c libs/flagManager.c -o libs/flagManager.o
+flagmanager.o: $(MANAGERS)/flagManager.c
+	gcc -c $(MANAGERS)/flagManager.c -o $(MANAGERS)/flagManager.o
 
-filemanager.o: libs/fileManager.c
-	gcc -c libs/fileManager.c -o libs/fileManager.o
+filemanager.o: $(MANAGERS)/fileManager.c
+	gcc -c $(MANAGERS)/fileManager.c -o $(MANAGERS)/fileManager.o
+
+ignoreFunctionality.o: $(FUNCS)/ignoreFunctionality.c
+	gcc -c $(FUNCS)/ignoreFunctionality.c -o $(FUNCS)/ignoreFunctionality.o
 
 main.o: main.c
 	echo "Compiling the main file"
